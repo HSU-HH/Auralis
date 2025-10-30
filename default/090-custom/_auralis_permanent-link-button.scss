@@ -1,3 +1,4 @@
+@use "settings/auralis_image-settings" as images;
 @use "../010-settings/settings_media" as param;
 @use "../010-settings/settings_color-palette" as color;
 @use "../010-settings/settings_borders" as borders;
@@ -45,7 +46,7 @@
     height: 24px;
     margin: 0;
     padding: 0;
-    background-image: url("#{param.$il-background-images-path}icons/copylink.svg");
+    background-image: url("#{param.$il-background-images-path}icons/#{images.$auralis-copy-link-icon}");
     background-repeat: no-repeat;
     background-position: top left;
     background-size: 24px 24px;

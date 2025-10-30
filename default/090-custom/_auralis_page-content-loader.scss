@@ -1,14 +1,16 @@
+@use "settings/auralis_design-settings" as auralis;
 @use "../010-settings/settings_media" as param;
 
-$loader-size: 32px;
+$loader-icon-top: auralis.$loader-icon-size / 2;
+$loader-icon-left: auralis.$loader-icon-size / 2;
 
 .auralis-content-loader {
   display: block;
-  width: $loader-size;
-  height: $loader-size;
+  width: auralis.$loader-icon-size;
+  height: auralis.$loader-icon-size;
   position: absolute;
-  top: calc(50% - $loader-size / 2);
-  left: calc(50% - $loader-size / 2 + 80px);
+  top: calc(50% - $loader-icon-top);
+  left: calc(50% - ($loader-icon-left + 80px));
 
   background-image: url("#{param.$il-background-images-path}media/loader.svg");
   background-repeat: no-repeat;
