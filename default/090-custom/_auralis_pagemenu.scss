@@ -1,0 +1,165 @@
+@use "./settings/auralis_image-settings" as images;
+@use "../010-settings/settings_media" as param;
+@use "../010-settings/settings_color-palette" as color;
+
+$hsu-page-menu-transition-offset: 10;
+
+.auralis-page-menu-block {
+  display: block;
+  position: sticky;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  top: 33px;
+  left: 0;
+
+  background-color: rgba(254, 254, 254, 0.9);
+  border-bottom: 1px solid #888888;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 400;
+  transform-origin: center $hsu-page-menu-transition-offset;
+  transition: transform 0.2s ease-out;
+
+  .auralis-page-menu-pin {
+    display: block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    right: 18px;
+    top: 7px;
+    background-color: unset;
+    border: unset;
+    transition: transform 0.3s ease-out;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      transform: rotate(45deg);
+      transform-origin: center;
+      background-color: unset;
+      border: unset;
+      transition: transform 0.3s ease-out;
+      background-image: url("#{param.$il-background-images-path}icons/#{images.$auralis-menu-pin-icon}");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.auralis-pinned {
+      &:before {
+        transform: rotate(0deg) !important;
+      }
+    }
+  }
+
+  &.auralis-page-menu-hidden {
+    transform: translateY(calc(-100% + #{$hsu-page-menu-transition-offset}px)) ;
+    opacity: 0;
+    transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+
+    &:hover {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  //ul#ilTab.nav.ilCollapsable {
+  //  margin-top: 5px !important;
+  //  padding-left: 3px;
+  //  border-top: 1px solid #1c1c1c;
+  //  border-bottom: 1px solid #1c1c1c;
+  //  width: 100%;
+  //
+  //  li {
+  //
+  //    > a {
+  //      padding: 6px 15px;
+  //    }
+  //
+  //    &.active {
+  //      background: color.$hsu-highlight-gradient;
+  //
+  //      > a {
+  //        background: unset;
+  //      }
+  //    }
+  //  }
+  //}
+  //
+  //ul#ilSubTab {
+  //  margin-top: -3px;
+  //  margin-left: 3px;
+  //  padding: 0;
+  //  border-radius: 0 0 8px 8px;
+  //  overflow: hidden;
+  //
+  //  li {
+  //    > a {
+  //      text-decoration: none;
+  //      padding: 6px 15px;
+  //    }
+  //
+  //    &.active {
+  //      background-color: color.$hsu-highlight-bg-gradient-color2;
+  //
+  //      &:hover {
+  //        background-color: color.$hsu-highlight-bg-gradient-color2;
+  //      }
+  //
+  //      > a {
+  //        color: color.$hsu-text-inverted-color;
+  //        text-decoration: none;
+  //      }
+  //    }
+  //
+  //    &:hover {
+  //      background-color: #f0f0f0;
+  //    }
+  //  }
+  //}
+  //
+  //.ilTabsContentOuter {
+  //  .ilToolbarContainer {
+  //    padding-top: 10px;
+  //
+  //    .c-toolbar {
+  //      background-color: unset;
+  //      margin-bottom: 5px;
+  //
+  //      .btn-primary {
+  //        background: color.$hsu-highlight-gradient;
+  //        color: color.$hsu-text-inverted-color;
+  //
+  //        &:hover {
+  //          background: color.$hsu-highlight-dark-gradient;
+  //          color: color.$hsu-text-inverted-color;
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+}
+
+@media only screen and (max-width: 991px) {
+  .hsu-page-menu-block {
+    position: relative !important;
+    width: 100% !important;
+    top: 0;
+
+    .hsu-page-menu-pin {
+      display: none;
+    }
+  }
+}
+
+

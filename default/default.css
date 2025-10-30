@@ -19628,5 +19628,76 @@ div.ilc_section_PagePositionMarker {
     display: block;
   }
 }
+.auralis-page-menu-block {
+  display: block;
+  position: sticky;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  top: 33px;
+  left: 0;
+  background-color: rgba(254, 254, 254, 0.9);
+  border-bottom: 1px solid #888888;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 400;
+  transform-origin: center 10;
+  transition: transform 0.2s ease-out;
+}
+.auralis-page-menu-block .auralis-page-menu-pin {
+  display: block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 18px;
+  top: 7px;
+  background-color: unset;
+  border: unset;
+  transition: transform 0.3s ease-out;
+}
+.auralis-page-menu-block .auralis-page-menu-pin:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transform: rotate(45deg);
+  transform-origin: center;
+  background-color: unset;
+  border: unset;
+  transition: transform 0.3s ease-out;
+  background-image: url("../images/icons/icon_pin.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+.auralis-page-menu-block .auralis-page-menu-pin:hover {
+  transform: scale(1.1);
+}
+.auralis-page-menu-block .auralis-page-menu-pin.auralis-pinned:before {
+  transform: rotate(0deg) !important;
+}
+.auralis-page-menu-block.auralis-page-menu-hidden {
+  transform: translateY(calc(-100% + 10px));
+  opacity: 0;
+  transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+}
+.auralis-page-menu-block.auralis-page-menu-hidden:hover {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+@media only screen and (max-width: 991px) {
+  .hsu-page-menu-block {
+    position: relative !important;
+    width: 100% !important;
+    top: 0;
+  }
+  .hsu-page-menu-block .hsu-page-menu-pin {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=default.css.map */
