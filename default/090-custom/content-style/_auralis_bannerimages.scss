@@ -4,7 +4,7 @@
 
 $auralis-banner-button-size: 42px;
 
-.hsu-banner-image {
+.auralis-banner-image {
   display: block;
   width: calc(100% + var(--bs-gutter-x));
   height: 50vh;
@@ -19,7 +19,7 @@ $auralis-banner-button-size: 42px;
   overflow: hidden;
 
 
-  .hsu-scroll-to-content {
+  .auralis-scroll-to-content {
     display: block;
     width: $auralis-banner-button-size;
     height: $auralis-banner-button-size;
@@ -54,7 +54,7 @@ $auralis-banner-button-size: 42px;
     }
   }
 
-  .hsu-banner-copyright {
+  .auralis-banner-copyright {
     display: block;
     position: absolute;
     right: 0;
@@ -85,7 +85,7 @@ $auralis-banner-button-size: 42px;
   }
 }
 
-.hsu-banner-caption {
+.auralis-banner-caption {
   display: block;
   width: calc(100% + var(--bs-gutter-x));
   margin: 0 calc(var(--bs-gutter-x) * -0.5);

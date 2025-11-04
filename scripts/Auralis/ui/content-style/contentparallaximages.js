@@ -19,39 +19,60 @@ export class ContentParallaxImages {
         }
     }
 
-    HandleImageCaption() {
-        const img_elements = this.DOM.getAll('[class^=\"ilc_media_cont_\"]');
+    HandleImageCaption(images) {
+        images.forEach(image => {
+            const caption = image.querySelector(".ilc_media_caption_MediaCaption");
+            const imgWrapper = image.querySelector(".ilc_Mob");
+            const img = imgWrapper ? imgWrapper.querySelector("img") : null;
 
-        img_elements.forEach(element => {
-            const figcaption = element.querySelector("figcaption > div");
+            if (!caption || !img) return;
 
-            if (figcaption) {
-                let text = figcaption.textContent;
-                text = text.replace(/\(R\)/g, "®");
+            let text = caption.textContent.trim();
+            let copyrightText = null;
 
-                const regexQuoted = /"([^"]*?)\(c\)([^"]*?)"/gi;
-                const regexPlain = /\s*\(c\)\s*/gi;
+            // Prüfen, ob (c) oder (C) enthalten ist
+            const hasC = /\(c\)|\(C\)/.test(text);
+            if (!hasC) return;
 
-                let matchQuoted = regexQuoted.exec(text);
+            // Prüfen, ob es in Anführungszeichen steht
+            const quotedMatch = text.match(/["“”']([^"“”']*(?:\(c\)|\(C\))[^"“”']*)["“”']/);
 
-                if (matchQuoted) {
-                    text = text.replace(matchQuoted[0], "").trim();
-                    const quotedText = matchQuoted[0].replace(/\(c\)/i, "").replace(/"/g, "").trim();
-                    this.img_copyright.textContent = quotedText;
+            if (quotedMatch) {
+                // Nur den Inhalt innerhalb der Anführungszeichen übernehmen
+                copyrightText = quotedMatch[1]
+                    .replace(/\(c\)|\(C\)/, "")
+                    .trim();
 
-                    if(text !== "") {
-                        this.img_caption.textContent = text;
-                    } else {
-                        this.img_caption.remove();
-                    }
-                } else if (/\(c\)/i.test(text)) {
-                    text = text.replace(regexPlain, "").trim();
-                    this.img_copyright.textContent = text;
-                    this.img_caption.remove();
-                } else {
-                    this.img_caption.textContent = text;
-                    this.img_copyright.remove();
+                // Alles von den Anführungszeichen inklusive entfernen
+                text = text.replace(quotedMatch[0], "").trim();
+            } else {
+                // Alles ab (c)/(C) entfernen und den Teil danach als Copyright übernehmen
+                const cMatch = text.match(/(\(c\)|\(C\)).*$/);
+                if (cMatch) {
+                    copyrightText = cMatch[0]
+                        .replace(/\(c\)|\(C\)/, "")
+                        .trim();
+                    text = text.replace(cMatch[0], "").trim();
                 }
+            }
+
+            // Copyright-Element erzeugen
+            if (copyrightText) {
+                const copyright = document.createElement("div");
+                copyright.classList.add("auralis-image-copyright");
+                copyright.textContent = copyrightText;
+
+                // Nach dem <img> einfügen
+                img.insertAdjacentElement("afterend", copyright);
+            }
+
+            // Wenn der Text nach der Bereinigung leer ist → parent entfernen
+            if (!text.length) {
+                const parent = caption.parentElement;
+                if (parent) parent.remove();
+            } else {
+                // Falls noch Text vorhanden ist, aktualisieren
+                caption.textContent = text;
             }
         });
     }
@@ -64,6 +85,8 @@ export class ContentParallaxImages {
         parallaxContainers.forEach(parallaxContainer => {
             const img = parallaxContainer.querySelector('img');
             const fig = parallaxContainer.querySelector('figure');
+
+            //HandleImageCaption(fig);
 
             if (!img) return;
 

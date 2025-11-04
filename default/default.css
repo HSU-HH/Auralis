@@ -19333,7 +19333,39 @@ div.Access {
   display: none;
 }
 
-.hsu-banner-image {
+[class^=ilc_media_cont_Media] {
+  position: relative;
+}
+[class^=ilc_media_cont_Media] .ilc_Mob {
+  overflow: hidden;
+  position: relative;
+}
+[class^=ilc_media_cont_Media] .ilc_Mob .auralis-image-copyright {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 5px 10px 5px 32px;
+  transform: translateX(calc(100% - 27px));
+  border-top-left-radius: 12px;
+  transition: transform 0.3s ease-out;
+  cursor: default;
+}
+[class^=ilc_media_cont_Media] .ilc_Mob .auralis-image-copyright:hover {
+  transform: translateX(0);
+}
+[class^=ilc_media_cont_Media] .ilc_Mob .auralis-image-copyright:before {
+  content: "©";
+  position: absolute;
+  font-size: 16px;
+  left: 8px;
+  top: 2px;
+}
+
+.auralis-banner-image {
   display: block;
   width: calc(100% + var(--bs-gutter-x));
   height: 50vh;
@@ -19347,7 +19379,7 @@ div.Access {
   z-index: 1;
   overflow: hidden;
 }
-.hsu-banner-image .hsu-scroll-to-content {
+.auralis-banner-image .auralis-scroll-to-content {
   display: block;
   width: 42px;
   height: 42px;
@@ -19362,7 +19394,7 @@ div.Access {
   z-index: 1;
   opacity: 0.5;
 }
-.hsu-banner-image .hsu-scroll-to-content:before {
+.auralis-banner-image .auralis-scroll-to-content:before {
   position: absolute;
   content: "";
   display: block;
@@ -19376,10 +19408,10 @@ div.Access {
   background-size: 42px 42px;
   filter: invert(1);
 }
-.hsu-banner-image .hsu-scroll-to-content:hover {
+.auralis-banner-image .auralis-scroll-to-content:hover {
   opacity: 1;
 }
-.hsu-banner-image .hsu-banner-copyright {
+.auralis-banner-image .auralis-banner-copyright {
   display: block;
   position: absolute;
   right: 0;
@@ -19396,18 +19428,18 @@ div.Access {
   hyphens: none;
   cursor: pointer;
 }
-.hsu-banner-image .hsu-banner-copyright:before {
+.auralis-banner-image .auralis-banner-copyright:before {
   content: "©";
   position: absolute;
   font-size: 16px;
   left: 8px;
   top: 2px;
 }
-.hsu-banner-image .hsu-banner-copyright:hover {
+.auralis-banner-image .auralis-banner-copyright:hover {
   transform: translateX(0);
 }
 
-.hsu-banner-caption {
+.auralis-banner-caption {
   display: block;
   width: calc(100% + var(--bs-gutter-x));
   margin: 0 calc(var(--bs-gutter-x) * -0.5);
@@ -19436,6 +19468,30 @@ div.ilc_section_Parallax {
   width: calc(100% + var(--bs-gutter-x));
   margin: 0 calc(var(--bs-gutter-x) * -0.5);
   overflow: hidden;
+}
+div.ilc_section_Parallax .auralis-image-copyright {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 5px 10px 5px 32px;
+  transform: translateX(calc(100% - 27px));
+  border-top-left-radius: 12px;
+  transition: transform 0.3s ease-out;
+  cursor: default;
+}
+div.ilc_section_Parallax .auralis-image-copyright:hover {
+  transform: translateX(0);
+}
+div.ilc_section_Parallax .auralis-image-copyright:before {
+  content: "©";
+  position: absolute;
+  font-size: 16px;
+  left: 8px;
+  top: 2px;
 }
 div.ilc_section_Parallax .auralis-parallax-image {
   display: block;

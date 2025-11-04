@@ -4,11 +4,11 @@ export class ContentBannerImages {
 
         this.DOM.add(".ilc_media_cont_PageBanner");
         this.DOM.add(".ilc_media_cont_PageBanner50H");
-        this.DOM.add(".hsu-banner-image");
-        this.DOM.add(".hsu-banner-caption");
-        this.DOM.add(".hsu-banner-copyright");
+        this.DOM.add(".auralis-banner-image");
+        this.DOM.add(".auralis-banner-caption");
+        this.DOM.add(".auralis-banner-copyright");
         this.DOM.add("#mainscrolldiv");
-        this.DOM.add(".hsu-scroll-to-content");
+        this.DOM.add(".auralis-scroll-to-content");
         this.DOM.add('[class^=\"ilc_media_cont_\"]');
     }
 
@@ -16,18 +16,17 @@ export class ContentBannerImages {
         this.EventHandler = events;
 
         if(this.DOM.IsPageEditing) {
-            this.DOM.get(".hsu-banner-image").remove();
-            this.DOM.get(".hsu-banner-caption").remove();
+            this.DOM.get(".auralis-banner-image").remove();
+            this.DOM.get(".auralis-banner-caption").remove();
         } else {
-//            this.HandleImageCaption();
             this.InitBannerImages();
         }
     }
 
     InitBannerImages() {
-        this.img_element = this.DOM.get(".hsu-banner-image");
-        this.img_caption = this.DOM.get(".hsu-banner-caption");
-        this.img_copyright = this.DOM.get(".hsu-banner-copyright");
+        this.img_element = this.DOM.get(".auralis-banner-image");
+        this.img_caption = this.DOM.get(".auralis-banner-caption");
+        this.img_copyright = this.DOM.get(".auralis-banner-copyright");
 
         let img1 = this.DOM.getAll(".ilc_media_cont_PageBanner");
         let img2 = this.DOM.getAll(".ilc_media_cont_PageBanner50H");
@@ -88,7 +87,7 @@ export class ContentBannerImages {
             this.img_copyright.remove();
         }
 
-        const scroll_button = this.DOM.get(".hsu-scroll-to-content");
+        const scroll_button = this.DOM.get(".auralis-scroll-to-content");
         this.content_top = this.DOM.get("#mainscrolldiv");
 
         if(scroll_button && this.content_top) {
@@ -136,8 +135,12 @@ export class ContentBannerImages {
     }
 
     ExitNoBannerImage() {
-        this.img_element.remove();
-        this.img_caption.remove();
+        try {
+            this.img_element.remove();
+            this.img_caption.remove();
+        } catch {
+            console.debug("Error: ExitNoBannerImage");
+        }
     }
 
     OnScrollToContent() {
