@@ -8,3 +8,16 @@ div.ilc_section_ScrollToTop {
 div.ilc_section_PagePositionMarker {
   display:none;
 }
+
+@media only screen and (max-width: 991px) {
+  footer {
+    margin-bottom: unset !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .il-layout-page-content {
+    min-height: calc(100vh - 48px) !important;
+  }
+}
+

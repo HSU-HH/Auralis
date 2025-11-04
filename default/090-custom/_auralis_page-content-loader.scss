@@ -8,12 +8,27 @@ $loader-icon-left: auralis.$loader-icon-size / 2;
   display: block;
   width: auralis.$loader-icon-size;
   height: auralis.$loader-icon-size;
-  position: absolute;
-  top: calc(50% - $loader-icon-top);
-  left: calc(50% - ($loader-icon-left + 80px));
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
 
   background-image: url("#{param.$il-background-images-path}media/loader.svg");
   background-repeat: no-repeat;
   background-position: top left;
   background-size: contain;
 }
+
+#mainspacekeeper {
+  opacity: 0;
+  transition: opacity 0.75s ease-out;
+
+  &.fade-in {
+    opacity: 1;
+  }
+
+  &.fade-out {
+    opacity: 0 !important;
+  }
+}
+

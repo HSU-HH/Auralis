@@ -13,7 +13,7 @@ div.ilc_section_Parallax {
     position: absolute;
     top: 0;
     left: 0;
-    background-size: 120% 120%;
+    background-size: auto 120%;
     background-repeat: no-repeat;
     background-position: center 0%;
     background-attachment: fixed;
@@ -42,7 +42,7 @@ div.ilc_section_Parallax {
     display: block;
     z-index: 1;
     margin: 0 calc(var(--bs-gutter-x) * -0.5);
-    overflow: visible;
+    //overflow: visible;
 
     .auralis-parallax-image {
       display: block;

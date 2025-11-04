@@ -44,6 +44,7 @@ async function InitAuralis() {
 
 
     dom.Init();
+    contentloader.Init();
 
     // Execute Modifications
     try {

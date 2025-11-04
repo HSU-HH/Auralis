@@ -84,7 +84,8 @@ export class ContentBannerImages {
                 this.img_copyright.remove();
             }
         } else {
-            return this.ExitNoBannerImage();
+            this.img_caption.remove();
+            this.img_copyright.remove();
         }
 
         const scroll_button = this.DOM.get(".hsu-scroll-to-content");

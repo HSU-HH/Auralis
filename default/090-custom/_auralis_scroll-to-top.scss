@@ -3,6 +3,12 @@
 @use "../010-settings/settings_color-palette" as color;
 @use "../010-settings/settings_media" as param;
 
+#auralis-page-top {
+  display: none;
+  height: 0;
+  flex-grow: 0 !important;
+}
+
 #MobilePageTop {
   display: none;
 }

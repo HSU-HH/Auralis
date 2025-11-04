@@ -28,6 +28,8 @@ export class EventHandler {
         this.DOM.add("main");
         this.DOM.add(".il-card");
         this.DOM.add(".alert");
+        this.DOM.add(".il-layout-page");
+        this.DOM.add(".il-mainbar-close-slates button");
 
         this.OnTouchStart = this.OnTouchStart.bind(this);
         this.OnTouchMove = this.OnTouchMove.bind(this);
@@ -60,6 +62,7 @@ export class EventHandler {
         this.PrevScreenSize = this.CurrScreenSize;
         this.PrevScreenSize = window.innerWidth;
 
+        this.CloseSlatesOnLoad();
         this.AttachCloseOnLeave();
     }
 
@@ -131,6 +134,23 @@ export class EventHandler {
                 }
             });
         });
+    }
+
+    CloseSlatesOnLoad()  {
+        const layout = this.DOM.get(".il-layout-page");
+
+        if(layout && layout.classList.contains('with-mainbar-slates-engaged')) {
+            const slate_btn = this.DOM.get(".il-mainbar-close-slates button");
+            const $slate_btn = $(slate_btn);
+
+            const hasJQEvents = !!($._data($slate_btn[0], "events")?.click?.length);
+            const hasNativeEvents = typeof slate_btn.onclick === "function";
+
+            if (hasJQEvents || hasNativeEvents) {
+                console.log("Auto-Close Slates");
+                $slate_btn.trigger("click");
+            }
+        }
     }
 
     AttachOnTouch(funcStartCallback, funcMoveCallback, funcEndCallback) {

@@ -1,4 +1,5 @@
 @use "./settings/auralis_image-settings" as images;
+@use "./settings/auralis_design-settings" as design;
 @use "../010-settings/settings_media" as param;
 @use "../010-settings/settings_color-palette" as color;
 
@@ -80,6 +81,9 @@ main:not(:has(.breadcrumbs)) {
   }
 
   .auralis-page-toolbar {
+    opacity: 0;
+    transition: opacity design.$fade-in-duration ease-out;
+
     .c-toolbar {
       background: unset;
     }
@@ -163,12 +167,17 @@ main:not(:has(.breadcrumbs)) {
 }
 
 @media only screen and (max-width: 991px) {
-  .hsu-page-menu-block {
+  //.il-layout-page-content > div {
+  //  flex-grow: 0 !important;
+  //}
+
+  .auralis-page-menu-block {
+    flex-grow: 0 !important;
     position: relative !important;
     width: 100% !important;
-    top: 0;
+    top: 0 !important;
 
-    .hsu-page-menu-pin {
+    .auralis-page-menu-pin {
       display: none;
     }
   }
