@@ -29,9 +29,9 @@ div.ilc_section_Parallax {
   div.ilc_section_Parallax:not(:has(.ilc_media_cont_MediaContainer)) {
     .dropdown {
       &.open {
-        ul > li:has(a:not(:has(:where(:is(:not(:empty)):where(:contains("Bild/Audio/Video einfügen")))))) {
-          display: none;
-        }
+        //ul > li:has(a:not(:has(:where(:is(:not(:empty)):where(:contains("Bild/Audio/Video einfügen")))))) {
+        //  display: none;
+        //}
       }
     }
   }

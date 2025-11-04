@@ -19357,9 +19357,6 @@ div.ilc_section_Parallax .ilc_section_BlockWidth1290 {
   background-color: unset;
 }
 
-#il_EditPage div.ilc_section_Parallax:not(:has(.ilc_media_cont_MediaContainer)) .dropdown.open ul > li:has(a:not(:has(:where(:is(:not(:empty)):where(:contains("Bild/Audio/Video einfügen")))))) {
-  display: none;
-}
 #il_EditPage div.ilc_section_Parallax {
   max-width: 100%;
   position: relative;
