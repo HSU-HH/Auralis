@@ -9,14 +9,18 @@ export class EventHandler {
     PrevScreenSize = 0;
     CurrScreenSize = 0;
 
-    constructor(utils, dom) {
+    constructor(utils, dom, device) {
         this.Utils = utils;
         this.DOM = dom;
+        this.Device = device;
 
         this.resizeCallbacks = [];
         this.scrollDesktopCallbacks = [];
         this.scrollMobileCallbacks = [];
         this.screenSwitchCallbacks = [];
+        this.touchStartCallbacks = [];
+        this.touchMoveCallbacks = [];
+        this.touchEndCallbacks = [];
 
         this.PrevScreenSize = window.innerWidth;
         this.CurrScreenSize = window.innerWidth;
@@ -24,6 +28,13 @@ export class EventHandler {
         this.DOM.add("main");
         this.DOM.add(".il-card");
         this.DOM.add(".alert");
+
+        this.OnTouchStart = this.OnTouchStart.bind(this);
+        this.OnTouchMove = this.OnTouchMove.bind(this);
+        this.OnTouchEnd = this.OnTouchEnd.bind(this);
+
+        this.Touch = new Map();
+        this.PrevTouch = new Map();
     }
 
     Init() {
@@ -122,8 +133,31 @@ export class EventHandler {
         });
     }
 
-    HandleTimer() {
+    AttachOnTouch(funcStartCallback, funcMoveCallback, funcEndCallback) {
+        if (typeof funcEndCallback === 'function' && !this.touchEndCallbacks.includes(funcEndCallback)) {
+            if (typeof funcMoveCallback === 'function' && !this.touchMoveCallbacks.includes(funcMoveCallback)) {
+                if (typeof funcStartCallback === 'function' && !this.touchStartCallbacks.includes(funcStartCallback)) {
+                    this.touchStartCallbacks.push(funcStartCallback);
+                    this.touchMoveCallbacks.push(funcMoveCallback);
+                    this.touchEndCallbacks.push(funcEndCallback);
+                }
+            }
+        }
+    }
 
+    HandleTouchCapability() {
+        if(this.Device.HasTouch) {
+            window.addEventListener("touchstart", this.OnTouchStart);
+            window.addEventListener("touchmove", this.OnTouchMove);
+            window.addEventListener("touchend", this.OnTouchEnd);
+        } else {
+            window.removeEventListener("touchstart", this.OnTouchStart);
+            window.removeEventListener("touchmove", this.OnTouchMove);
+            window.removeEventListener("touchend", this.OnTouchEnd);
+        }
+    }
+
+    HandleTimer() {
         // const alert = this.DOM.get(".alert");
         // if (!alert) return;
         //
@@ -144,6 +178,8 @@ export class EventHandler {
     OnResize(e) {
         e.PrevScreenSize = e.CurrScreenSize;
         e.CurrScreenSize = window.innerWidth;
+
+        this.HandleTouchCapability();
 
         if (e.PrevScreenSize <= 991 && e.CurrScreenSize > 991) {
             e.OnScreenSwitch(e);
@@ -180,4 +216,32 @@ export class EventHandler {
 
         e.screenSwitchCallbacks.forEach(fn => fn());
     }
+
+    OnTouchStart(e) {
+        for (let t of e.changedTouches) {
+            this.PrevTouch.set(t.identifier, { X: 0, Y: 0})
+            this.Touch.set(t.identifier, { X: t.clientX, Y: t.clientY, StartX: t.clientX, StartY: t.clientY, DeltaX: 0, DeltaY: 0 });
+        }
+        e.touchStartCallbacks.forEach(fn => fn());
+    }
+
+    OnTouchMove(e) {
+        for (let t of e.changedTouches) {
+            let dX = this.PrevTouch[t.identifier].X;
+            let dY = this.PrevTouch[t.identifier].Y;
+            this.PrevTouch.set(t.identifier, { X: this.Touch[t.identifier].X, Y: this.Touch[t.identifier].clientY})
+            this.Touch.set(t.identifier, { X: t.clientX, Y: t.clientY, StartX: t.clientX, StartY: t.clientY, DeltaX: dX - t.clientX, DeltaY: dY - t.clientY });
+        }
+        e.touchMoveCallbacks.forEach(fn => fn());
+    }
+
+    OnTouchEnd(e) {
+        for (let t of e.changedTouches) {
+            this.PrevTouch.delete(t.identifier);
+            this.Touch.delete(t.identifier);
+        }
+        e.touchEndCallbacks.forEach(fn => fn());
+    }
 }
+
+

@@ -42,6 +42,13 @@ export class PageMenu {
         }
     }
 
+    HeightWithMargin(element) {
+        const style = getComputedStyle(element);
+        const marginTop = parseFloat(style.marginTop);
+        const marginBottom = parseFloat(style.marginBottom);
+        return element.offsetHeight + marginTop + marginBottom;
+    }
+
     Hide() {
         if (this.menu) {
             this.menu.style.display = 'none';

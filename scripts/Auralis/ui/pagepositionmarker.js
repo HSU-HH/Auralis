@@ -25,9 +25,9 @@ export class PagePositionMarker {
         percentage = Math.min(percentage, 100);
         percentage = Math.max(percentage, 0);
 
-        this.mobileElement.style.setProperty('--page-pos1', percentage + "%");
-        this.mobileElement.style.setProperty('--page-pos2', secondValue + "%");
-        this.scroll_element.style.setProperty('--page-pos1', percentage + "%");
-        this.scroll_element.style.setProperty('--page-pos2', secondValue + "%");
+        this.mobileElement?.style.setProperty('--page-pos1', percentage + "%");
+        this.mobileElement?.style.setProperty('--page-pos2', secondValue + "%");
+        this.scroll_element?.style.setProperty('--page-pos1', percentage + "%");
+        this.scroll_element?.style.setProperty('--page-pos2', secondValue + "%");
     }
 }

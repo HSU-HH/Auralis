@@ -3,20 +3,22 @@
 
 // The first two layers expose public variables with @forward so they can be overwritten in a skin
 
+
+
 // ## Settings
-@forward "./010-settings/";
+@forward "./010-settings";
 
 // ## Dependencies
-@forward "./020-dependencies/";
+@forward "./020-dependencies";
 
 // ## Tools
 // include patterns and tools with @use in component when needed
 
 // ## Normalize
-@use "./040-normalize/" as *;
+@use "./040-normalize" as *;
 
 // ## Layout
-@use "./050-layout/" as *; // these are only Layout Utilities that require to write CSS code like the grid
+@use "./050-layout" as *; // these are only Layout Utilities that require to write CSS code like the grid
 // include all other specific layout files and folder with @use in component when needed
 
 // ## Elements

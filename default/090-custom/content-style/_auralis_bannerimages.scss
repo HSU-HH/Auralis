@@ -1,0 +1,108 @@
+@use "../../010-settings/settings_media" as param;
+@use "../../010-settings/settings_color-palette" as color;
+@use "../../010-settings/settings_borders" as borders;
+
+$auralis-banner-button-size: 42px;
+
+.hsu-banner-image {
+  display: block;
+  width: calc(100% + var(--bs-gutter-x));
+  height: 50vh;
+  margin: 0 calc(var(--bs-gutter-x) * -0.5);
+  padding: 0;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+
+  .hsu-scroll-to-content {
+    display: block;
+    width: $auralis-banner-button-size;
+    height: $auralis-banner-button-size;
+    position: absolute;
+    left: calc(50% - ($auralis-banner-button-size / 2));
+    bottom: 15px;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: 1;
+    opacity: 0.5;
+
+    &:before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: $auralis-banner-button-size;
+      height: $auralis-banner-button-size;
+      top: 0;
+      left: 0;
+      background-image: url("#{param.$il-background-images-path}icons/arrow_down_1c1c1c.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $auralis-banner-button-size $auralis-banner-button-size;
+      filter: invert(1);
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .hsu-banner-copyright {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateX(calc(100% - 28px));
+    transition: transform 0.5s ease-out;
+    margin: 0;
+    padding: 6px 12px 6px 28px;
+    font-size: 10px;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 12px 0 0 0;
+    hyphens: none;
+    cursor: pointer;
+
+    &:before {
+      content: "©";
+      position: absolute;
+      font-size: 16px;
+      left: 8px;
+      top: 2px;
+    }
+
+    &:hover {
+      transform: translateX(0);
+    }
+  }
+}
+
+.hsu-banner-caption {
+  display: block;
+  width: calc(100% + var(--bs-gutter-x));
+  margin: 0 calc(var(--bs-gutter-x) * -0.5);
+  padding: 6px 18px 6px 12px;
+  font-size: 10px;
+  font-style: italic;
+  z-index: 2;
+  background: #f8f8f8;
+  color: #000000;
+  border-radius: 0;
+  hyphens: none;
+  cursor: default;
+}
+
+figure.ilc_media_cont_PageBanner {
+  display: block;
+  left: calc(var(--bs-gutter-x) * -0.5);
+  width: calc(100% + var(--bs-gutter-x));
+  margin: 0;
+}

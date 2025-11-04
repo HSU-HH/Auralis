@@ -1,22 +1,34 @@
 async function InitAuralis() {
     const Utils = await import('./Auralis/common/utils.js');
     const { DOM } = await import('./Auralis/common/dom.js');
-    const { EventHandler } = await import('./Auralis/common/eventhandler.js');
-    const { CookieManager } = await import('./Auralis/common/cookiemanager.js');
-    const { ContentLoader } = await import('./Auralis/common/contentloader.js');
+    const { DeviceHandler } = await import('./Auralis/services/devicehandler.js');
+    const { EventHandler } = await import('./Auralis/services/eventhandler.js');
+    const { CookieManager } = await import('./Auralis/services/cookiemanager.js');
+    const { ContentLoader } = await import('./Auralis/ui/contentloader.js');
     const { CopyLink } = await import('./Auralis/ui/copylink.js');
     const { PagePositionMarker } = await import('./Auralis/ui/pagepositionmarker.js');
     const { ScrollToTop } = await import('./Auralis/ui/scrolltotop.js');
     const { PageMenu } = await import('./Auralis/ui/pagemenu.js');
 
+    // Content-Style-Modifications
+    const { ContentSpacer } = await import('./Auralis/ui/content-style/contentspacer.js');
+    const { ContentBannerImages } = await import('./Auralis/ui/content-style/contentbannerimages.js');
+    const { ContentParallaxImages } = await import('./Auralis/ui/content-style/contentparallaximages.js');
+
+    const device = new DeviceHandler();
     const cookies = new CookieManager("Auralis-Settings");
     const dom = new DOM(Utils);
-    const eventhandler = new EventHandler(Utils, dom);
+    const eventhandler = new EventHandler(Utils, dom, device);
     const contentloader = new ContentLoader(dom);
     const copylink = new CopyLink(dom);
     const pagemarker = new PagePositionMarker(Utils, dom);
     const scrollToTop = new ScrollToTop(Utils, dom);
     const pagemenu = new PageMenu(dom);
+
+    const style_spacer = new ContentSpacer(dom);
+    const style_bannerimages = new ContentBannerImages(dom);
+    const style_parallaximages = new ContentParallaxImages(dom);
+
 
     // Objekt-Klassen anhand der URL festlegen
     dom.addObjectClass("ilwikihandlergui", "auralis-wiki");
@@ -65,6 +77,22 @@ async function InitAuralis() {
         pagemenu.Init(eventhandler, cookies);
     } catch {
         console.debug("Error: Initialize PageMenu()");
+    }
+
+    try {
+        style_spacer.Init();
+    } catch {
+        console.debug("Error: Initialize ContentSpacer()");
+    }
+    try {
+        style_bannerimages.Init(eventhandler);
+    } catch {
+        console.debug("Error: Initialize ContentBannerImages()");
+    }
+    try {
+        style_parallaximages.Init(eventhandler);
+    } catch {
+        console.debug("Error: Initialize ContentParallaxImages()");
     }
 
     contentloader.ShowContent();

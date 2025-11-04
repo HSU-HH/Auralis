@@ -4,6 +4,12 @@
 
 $hsu-page-menu-transition-offset: 10;
 
+main:not(:has(.breadcrumbs)) {
+  .auralis-page-menu-block {
+    top: 0 !important;
+  }
+}
+
 .auralis-page-menu-block {
   display: block;
   position: sticky;
@@ -70,6 +76,12 @@ $hsu-page-menu-transition-offset: 10;
     &:hover {
       opacity: 1;
       transform: scaleY(1);
+    }
+  }
+
+  .auralis-page-toolbar {
+    .c-toolbar {
+      background: unset;
     }
   }
 
@@ -161,5 +173,6 @@ $hsu-page-menu-transition-offset: 10;
     }
   }
 }
+
 
 
