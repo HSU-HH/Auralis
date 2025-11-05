@@ -120,6 +120,34 @@ der übrige Text wird als Bildbeschreibung interpretiert.
 
 <br>
 
+#### FlipCards
+
+Ermöglicht das Einbinden von FlipCards auf der Seite. In der Desktop-Ansicht dreht sich die Karte beim hovern des
+Mauszeigers über der jeweiligen FlipCard um. In der mobilen und der Tablet-Ansicht erfolgt dies durch einen Klick
+auf die Karte. Dabei werden alle umgedrehten Karten wieder zurück gedreht.
+
+
+>
+> **Hinweis:**  
+> Um FlipCards verwenden zu können ist der AURALIS Content-Style nötig, um eine einwandfreie Funktion sicher
+> zu stellen.
+>
+
+<br>
+
+#### Background-Images
+
+Ermöglicht das Einfügen von Hintergrundbildern in Blöcke bei der Bearbeitung der Seite mit dem Seiteneditor.
+
+
+>
+> **Hinweis:**  
+> Um Background-Images verwenden zu können ist der AURALIS Content-Style nötig, um eine einwandfreie Funktion sicher
+> zu stellen.
+>
+
+<br>
+
 ## Lizenz
 
 ### CC BY-NC-ND 4.0  
