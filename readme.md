@@ -148,6 +148,15 @@ Ermöglicht das Einfügen von Hintergrundbildern in Blöcke bei der Bearbeitung 
 
 <br>
 
+## AURALIS Content-Style
+
+Der passende Content-Style zum AURALIS-Skin kann im Bereich ILIAS-Development im ILIAS-Supportbereich der HSU / UniBw H
+herunter geladen werden.
+
+ILIAS-Supportbereich: https://ilias-public.hsu-hh.de/go/wiki/wpage_39_439
+
+<br>
+
 ## Lizenz
 
 ### CC BY-NC-ND 4.0  
