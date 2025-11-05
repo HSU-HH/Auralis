@@ -32,6 +32,9 @@ Auralis-Version: 1.0 (ILIAS-Version: 9.14)
 - Image-Copyrights
 - FlipCards
 - Background-Images on Blocks
+- Wiki-Features (Banner-Image, Sticky Menüs, Sticky Side-Block, Page-Menü, etc.)
+- Neue Menüpositionierung für mobile Endgeräte
+
 
 <br>
 
