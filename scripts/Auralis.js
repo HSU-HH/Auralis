@@ -15,6 +15,7 @@ async function InitAuralis() {
     const { ContentBannerImages } = await import('./Auralis/ui/content-style/contentbannerimages.js');
     const { ContentParallaxImages } = await import('./Auralis/ui/content-style/contentparallaximages.js');
     const { ContentImages } = await import('./Auralis/ui/content-style/contentimages.js');
+    const { ContentFlipCards } = await import('./Auralis/ui/content-style/contentflipcards.js');
 
     const device = new DeviceHandler();
     const cookies = new CookieManager("Auralis-Settings");
@@ -30,6 +31,7 @@ async function InitAuralis() {
     const style_bannerimages = new ContentBannerImages(dom);
     const style_parallaximages = new ContentParallaxImages(dom);
     const style_images = new ContentImages(dom);
+    const style_flipcards = new ContentFlipCards(dom, eventhandler, Utils);
 
 
     // Objekt-Klassen anhand der URL festlegen
@@ -101,6 +103,11 @@ async function InitAuralis() {
         style_parallaximages.Init(eventhandler);
     } catch {
         console.debug("Error: Initialize ContentParallaxImages()");
+    }
+    try {
+        style_flipcards.Init();
+    } catch {
+        console.debug("Error: Initialize ContentFlipCards()");
     }
 
     contentloader.ShowContent();

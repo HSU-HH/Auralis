@@ -26,6 +26,10 @@ Auralis-Version: 1.0 (ILIAS-Version: 9.14)
 - Scroll-To-Top - Button
 - Page-Position - Marker
 - Content-Loader
+- Sticky Page-Menu (Desktop-Ansicht)
+- Banner-Images
+- Parallax-Images
+- Image-Copyrights
 
 <br>
 
@@ -37,21 +41,82 @@ Erstellt ein Icon neben den Breadcrumbs, womit beim klicken auf das Icon der per
 direkt in die Zwischenablage kopiert wird.
 Gleichzeitig wird die Option aus dem Footer entfernt.
 
+<br>
+
 #### <span><img src="images/icons/arrow_up_4c6586.svg" width="20" height="20" alt="Copy Icon" style="border-radius: 50%; padding: 4px; border: 2px solid #1c1c1c; vertical-align: middle;">&nbsp;</span> Scroll-To-Top - Button
 
 Fügt auf allen Seiten einen Scroll-To-Top Button ein, welcher beim scrollen auf der Seite eingeblendet wird. Beim 
 klicken auf den Button wird ein sanfter Bildlauf zum Seitenanfang durchgeführt.
+
+<br>
 
 #### Page-Position - Marker
 
 Der Page-Position - Marker zeigt unterhalb der Breadcrumbs die Scrollposition auf der Seite als waagerechter Balken an. 
 Dies ermöglicht eine Orientierung über die Scrollposition auf der Seite auch bei ausgeblendeten Scrollleisten. 
 
+<br>
+
 #### <span><img src="images/media/loader.svg" width="12" height="12" alt="Copy Icon" style="vertical-align: middle;">&nbsp;</span> Content-Loader
 
 So lange eine Seite geladen wird, wird das Loader-Icon angezeigt. Dies verhindert, dass Glitches, welche durch den 
 Umbau des DOM durch den Skin erfolgen sichtbar werden.
 Das Hauptmenü und der Header bleiben weiter sichbar.
+
+<br>
+
+#### Sticky Page-Menü
+
+Das Seiten-Menü wird grundsätzich unterhalb der Breadcrumbs angezeigt. Beim scrollen wird das Menü ausgeblendet um
+den maximalen Bereich für den Content frei zu halten. Sobald der Mauszeiger knapp unterhalb die Breadcrumbs geführt
+wird, rollt das Menü automatisch wieder auf. So können Nutzende das Menü bei Bedarf jederzeit auf der Seite öffnen
+um weitere Aktionen durchzuführen.
+
+Zusätzlich ist ein Menü-Pin implementiert worden, um das Menü dauerhaft bei größeren Umbauten anzuzeigen. Der Status
+des Menüs wird bei jedem Nutzer als Cookie gespeichert. Der Initialwert ist deaktiviert, so dass das Menü immer 
+ausgeblendet wird, sofern kein Cookie gesetzt ist.
+
+<br>
+
+#### Banner-Images
+
+Für Kategorien, Kurse, Gruppen und Inhaltsseiten können über den Contentstyle des Media-Block ein Bannerbild ausgewählt
+werden. Dabei gibt es die Versionen mit 50% oder 100% der Gesamthöhe des Bildschirms. Auf dem Bild wird automatisch
+ein Scroll-To-Content - Button eingefügt, um mit einem Klick direkt zu eigentlichen Content zu scrollen. Das Scrollen 
+wird als sanfter Bildlauf ausgeführt.
+
+>
+> **Hinweis:**  
+> Um Banner-Images verwenden zu können ist der AURALIS Content-Style nötig, um eine einwandfreie Funktion sicher 
+> zu stellen.  
+> 
+
+<br>
+
+#### Parallax-Images
+
+Parallax-Images sind ein Design-Element, um Inhalte von Webseiten attraktiv aufzuwerten. Um ein Parallax-Image zu 
+erstellen, muss der Block Parallax im Content eingefügt werden und dort ein Media-Container mit einem Bild.
+
+
+>
+> **Hinweis:**  
+> Um Banner-Images verwenden zu können ist der AURALIS Content-Style nötig, um eine einwandfreie Funktion sicher
+> zu stellen.
+>
+
+<br>
+
+#### Image-Copyright
+
+Viele Bilder unterliegen Urheberrechten. Um eine gültige Urheberrechtsangabe einzufügen, wird vom AURALIS-Skin die 
+Bildbeschreibung verwendet. Wenn ein (c) oder (C) mit einem Text angegeben wird, wird dieser als Copyright-Angabe 
+vom Skin interpretiert und mit dem &copy; - Zeichen als Hover-Overlay eingefügt. Wenn zu der Copyrightangabe noch 
+eine zusätzliche Bildbeschreibung eingefügt werden soll, muss die Angabe der Copyright-Informationen in "" und mit
+einem (c) oder (C) beginnend eingefügt werden. Alles zwischen den "" wird dann als Copyrightangabe interpretiert,
+der übrige Text wird als Bildbeschreibung interpretiert.
+
+<br>
 
 ## Lizenz
 
@@ -96,7 +161,7 @@ E-Mail: **ilias@hsu-hh.de**
 
 ## Credits
 
-Die Schriftart Montserrat unterliegt dem Copyright von Designer **Julieta Ulanovsky** und steht unter der freien, offenen SIL Open Font License für private und kommerzielle Projekte.
+Die Schriftart **Montserrat** unterliegt dem Copyright von Designer **Julieta Ulanovsky** und steht unter der freien, offenen SIL Open Font License für private und kommerzielle Projekte.
 
 <br>
 

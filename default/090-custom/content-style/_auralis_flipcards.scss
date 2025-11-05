@@ -1,0 +1,80 @@
+@use "../settings/auralis_image-settings" as images;
+@use "../../010-settings/settings_media" as param;
+
+$auralis-flip-icon-size: 48px;
+
+.ilc_section_FlipCard {
+  display: block;
+  width: 100%;
+  height: 400px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+
+  .ilc_section_FlipCardFront,
+  .ilc_section_FlipCardBack {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid #dddddd;
+    -webkit-box-shadow: 0px 0px 12px 5px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 12px 5px rgba(0,0,0,0.2);
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 15px;
+      display: block;
+      width: $auralis-flip-icon-size;
+      height: $auralis-flip-icon-size;
+      z-index: 2;
+      background-size: $auralis-flip-icon-size $auralis-flip-icon-size;
+      background-image: url("#{param.$il-background-images-path}icons/#{images.$auralis-flipcard-flip-btn}");
+      background-repeat: no-repeat;
+      background-position: top left;
+    }
+  }
+
+  .ilc_section_FlipCardFront {
+    &:before {
+      right: 15px;
+      filter: invert(1);
+    }
+  }
+  .ilc_section_FlipCardBack {
+    &:before {
+      left: 15px;
+    }
+  }
+
+    .ilc_section_FlipCardBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg) scaleX(-1);
+
+    .flipcard-back-content {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.ilc_page_Page {
+  .ilc_section_FlipCard {
+    .ilc_section_FlipCardBack {
+      position: relative !important;
+      transform: unset !important;
+    }
+  }
+}
+
+
