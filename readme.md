@@ -30,6 +30,8 @@ Auralis-Version: 1.0 (ILIAS-Version: 9.14)
 - Banner-Images
 - Parallax-Images
 - Image-Copyrights
+- FlipCards
+- Background-Images on Blocks
 
 <br>
 
