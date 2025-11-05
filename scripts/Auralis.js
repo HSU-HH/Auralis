@@ -1,3 +1,16 @@
+function Initialize(instance, debugText, ...args) {
+    if (!instance || typeof instance.Init !== "function") {
+        console.debug(`Error: ${debugText} — keine gültige Init()-Methode gefunden.`);
+        return;
+    }
+
+    try {
+        instance.Init(...args); // alle zusätzlichen Parameter weitergeben
+    } catch (error) {
+        console.debug(`Error: ${debugText}`, error);
+    }
+}
+
 async function InitAuralis() {
     const Utils = await import('./Auralis/common/utils.js');
     const { DOM } = await import('./Auralis/common/dom.js');
@@ -16,6 +29,7 @@ async function InitAuralis() {
     const { ContentParallaxImages } = await import('./Auralis/ui/content-style/contentparallaximages.js');
     const { ContentImages } = await import('./Auralis/ui/content-style/contentimages.js');
     const { ContentFlipCards } = await import('./Auralis/ui/content-style/contentflipcards.js');
+    const { BackgroundImages } = await import('./Auralis/ui/content-style/backgroundimages.js');
 
     const device = new DeviceHandler();
     const cookies = new CookieManager("Auralis-Settings");
@@ -32,6 +46,7 @@ async function InitAuralis() {
     const style_parallaximages = new ContentParallaxImages(dom);
     const style_images = new ContentImages(dom);
     const style_flipcards = new ContentFlipCards(dom, eventhandler, Utils);
+    const style_bg_images = new BackgroundImages(dom);
 
 
     // Objekt-Klassen anhand der URL festlegen
@@ -51,64 +66,20 @@ async function InitAuralis() {
     contentloader.Init();
 
     // Execute Modifications
-    try {
-        eventhandler.Init();
-    } catch {
-        console.debug("Error: Initialize EventHandler()");
-    }
-    try {
-        cookies.Init();
-    } catch {
-        console.debug("Error: Initialize CookieManager()");
-    }
+    Initialize(eventhandler, "Error: Initialize EventHandler()");
+    Initialize(cookies, "Error: Initialize CookieManager()");
 
+    Initialize(copylink, "Error: Initlialize CopyLink()");
+    Initialize(scrollToTop, "Error: Initialize ScrollToTop()", eventhandler);
+    Initialize(pagemarker, "Error: Initialize PagePositionMarker()", eventhandler);
+    Initialize(pagemenu, "Error: Initialize PageMenu()", eventhandler, cookies);
 
-    try {
-        copylink.Init();
-    } catch {
-        console.debug("Error: Initlialize CopyLink()");
-    }
-    try {
-        scrollToTop.Init(eventhandler);
-    } catch {
-        console.debug("Error: Initialize ScrollToTop()");
-    }
-    try {
-        pagemarker.Init(eventhandler);
-    } catch {
-        console.debug("Error: Initialize PagePositionMarker()");
-    }
-    try {
-        pagemenu.Init(eventhandler, cookies);
-    } catch {
-        console.debug("Error: Initialize PageMenu()");
-    }
-
-    try {
-        style_spacer.Init();
-    } catch {
-        console.debug("Error: Initialize ContentSpacer()");
-    }
-    try {
-        style_images.Init();
-    } catch {
-        console.debug("Error: Initialize ContentImages()");
-    }
-    try {
-        style_bannerimages.Init(eventhandler);
-    } catch {
-        console.debug("Error: Initialize ContentBannerImages()");
-    }
-    try {
-        style_parallaximages.Init(eventhandler);
-    } catch {
-        console.debug("Error: Initialize ContentParallaxImages()");
-    }
-    try {
-        style_flipcards.Init();
-    } catch {
-        console.debug("Error: Initialize ContentFlipCards()");
-    }
+    Initialize(style_spacer, "Error: Initialize ContentSpacer()");
+    Initialize(style_images, "Error: Initialize ContentImages()");
+    Initialize(style_bannerimages, "Error: Initialize ContentBannerImages()");
+    Initialize(style_parallaximages, "Error: Initialize ContentParallaxImages()", eventhandler);
+    Initialize(style_bg_images, "Error: Initialize ContentBackgroundImages()");
+    Initialize(style_flipcards, "Error: Initialize ContentFlipCards()");
 
     contentloader.ShowContent();
 }

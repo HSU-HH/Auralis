@@ -1,15 +1,20 @@
-import {getScreenWidth} from "../../common/utils";
-
 export class ContentFlipCards {
     constructor(dom, events, utils) {
         this.DOM = dom;
         this.EventHandler = events;
         this.Utils = utils;
+        this.Size = 0;
 
         this.Cards = Array.from(document.querySelectorAll('.ilc_section_FlipCard')).map(card => {
             const front = card.querySelector('.ilc_section_FlipCardFront');
             const back = card.querySelector('.ilc_section_FlipCardBack');
-            return { card, front, back, flipped: false };
+            return {
+                card,
+                front,
+                back,
+                flipped: false,
+                listeners: {}
+            };
         });
     }
 
@@ -42,32 +47,69 @@ export class ContentFlipCards {
         cardData.flipped = false;
     }
 
-    OnResize() {
-        if(this.Utils.getScreenWidth() ) {
+    AttachDesktopEvents(c) {
+        // Listener definieren und speichern
+        c.listeners.mouseenter = () => this.OnMouseEnter(c);
+        c.listeners.mouseleave = () => this.OnMouseLeave(c);
 
-            this.Cards.forEach(c => {
-                c.card.replaceWith(c.card.cloneNode(true));
+        // Events anhängen
+        c.card.addEventListener('mouseenter', c.listeners.mouseenter);
+        c.card.addEventListener('mouseleave', c.listeners.mouseleave);
+    }
+
+    DetachDesktopEvents(c) {
+        if (c.listeners.mouseenter) {
+            c.card.removeEventListener('mouseenter', c.listeners.mouseenter);
+        }
+        if (c.listeners.mouseleave) {
+            c.card.removeEventListener('mouseleave', c.listeners.mouseleave);
+        }
+    }
+
+    AttachMobileEvents(c) {
+        c.listeners.click = () => {
+            this.Cards.forEach(other => {
+                if (other !== c && other.flipped) {
+                    this.OnMouseLeave(other);
+                }
             });
 
-            if (!this.Device.IsMobile) {
-                this.Cards.forEach(c => {
-                    c.card.addEventListener('mouseenter', () => this.OnMouseEnter(c));
-                    c.card.addEventListener('mouseleave', () => this.OnMouseLeave(c));
-                });
+            if (c.flipped) {
+                this.OnMouseLeave(c);
             } else {
-                this.Cards.forEach(c => {
-                    c.flipped = false;
-                    c.card.addEventListener('click', () => {
-                        if (c.flipped) {
-                            this.OnMouseLeave(c);
-                        } else {
-                            this.OnMouseEnter(c);
-                        }
-                    });
-                });
+                this.OnMouseEnter(c);
             }
+        };
+
+        c.card.addEventListener('click', c.listeners.click);
+    }
+
+    DetachMobileEvents(c) {
+        if (c.listeners.click) {
+            c.card.removeEventListener('click', c.listeners.click);
         }
-        this.Size = this.Utils.getScreenWidth();
+    }
+
+    OnResize() {
+        const newWidth = this.Utils.getScreenWidth();
+
+        if (newWidth !== this.Size) {
+            const isDesktop = newWidth > 991;
+
+            this.Cards.forEach(c => {
+                this.DetachDesktopEvents(c);
+                this.DetachMobileEvents(c);
+
+                if (isDesktop) {
+                    this.AttachDesktopEvents(c);
+                } else {
+                    c.flipped = false;
+                    this.AttachMobileEvents(c);
+                }
+            });
+        }
+
+        this.Size = newWidth;
     }
 }
 
