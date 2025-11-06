@@ -32,6 +32,7 @@ Auralis-Version: 1.0 (ILIAS-Version: 9.14)
 - Image-Copyrights
 - FlipCards
 - Background-Images on Blocks
+- Language-Flags (Deutsch, Englisch, Italienisch, Französisch)
 - Wiki-Features (Banner-Image, Sticky Menüs, Sticky Side-Block, Page-Menü, etc.)
 - Neue Menüpositionierung für mobile Endgeräte
 
@@ -151,12 +152,20 @@ Ermöglicht das Einfügen von Hintergrundbildern in Blöcke bei der Bearbeitung 
 
 <br>
 
+#### Language-Flags
+
+Auf der Startseite werden in der Metabar im Menüpunkt Sprachauswahl für die jeweiligen Sprachen die entsprechende 
+Flaggen eingefügt.
+
+<br>
+
 ## AURALIS Content-Style
 
 Der passende Content-Style zum AURALIS-Skin kann im Bereich ILIAS-Development im ILIAS-Supportbereich der HSU / UniBw H
 herunter geladen werden.
 
-ILIAS-Supportbereich: https://ilias-public.hsu-hh.de/go/wiki/wpage_39_439
+ILIAS-Supportbereich:  
+👉 https://ilias-public.hsu-hh.de/go/wiki/wpage_39_439
 
 <br>
 
@@ -203,7 +212,25 @@ E-Mail: **ilias@hsu-hh.de**
 
 ## Credits
 
+### Schriftart Montserrat
+
 Die Schriftart **Montserrat** unterliegt dem Copyright von Designer **Julieta Ulanovsky** und steht unter der freien, offenen SIL Open Font License für private und kommerzielle Projekte.
+
+### Zusätzliche Icons
+
+Die zusätzlichen Icons, Control-Icons und Flaggen wurden von **Bettina Solzbacher** erstellt.
+
+Facebook und das Facebook-Logo sind Marken von Meta Platforms, Inc.  
+👉 https://about.meta.com/brand/resources/facebook/logo/  
+
+Instagram und das Instagram-Logo sind Marken von Meta Platforms, Inc.  
+👉 https://about.meta.com/brand/resources/instagram/  
+
+YouTube und das YouTube-Logo sind Marken von Google LLC.  
+👉 https://www.youtube.com/about/brand-resources/  
+
+LinkedIn und das LinkedIn-Logo sind Marken der LinkedIn Corporation.  
+👉 https://brand.linkedin.com/  
 
 <br>
 

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 24 16">
-  <!-- Hintergrund -->
-  <rect width="24" height="16" fill="#00247D" />
-  <!-- Diagonale weiße Kreuze -->
-  <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="3.2" />
-  <!-- Diagonale rote Kreuze -->
-  <path d="M0 0 L24 16 M24 0 L0 16" stroke="#CC0000" stroke-width="1.6" />
-  <!-- Horizontales und vertikales weißes Kreuz -->
-  <path d="M0 8 H24 M12 0 V16" stroke="#FFFFFF" stroke-width="5.333" />
-  <!-- Horizontales und vertikales rotes Kreuz -->
-  <path d="M0 8 H24 M12 0 V16" stroke="#CC0000" stroke-width="2.666" />
+    <title>Flag of Great Britain</title>
+    <desc>Credits: Bettina Solzbacher — Lizenz: CC BY-SA 4.0</desc>
+    <rect width="24" height="16" fill="#00247D" />
+    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#FFFFFF" stroke-width="3.2" />
+    <path d="M0 0 L24 16 M24 0 L0 16" stroke="#CC0000" stroke-width="1.6" />
+    <path d="M0 8 H24 M12 0 V16" stroke="#FFFFFF" stroke-width="5.333" />
+    <path d="M0 8 H24 M12 0 V16" stroke="#CC0000" stroke-width="2.666" />
 </svg>

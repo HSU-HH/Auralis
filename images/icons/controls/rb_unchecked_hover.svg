@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg style="display: inline-block; vertical-align: middle;" viewBox="0 0 24 24" height="24" width="24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <title>Icon radio-button unchecked, active, hovered</title>
+    <desc>Credits: Bettina Solzbacher — Lizenz: CC BY-SA 4.0</desc>
     <circle fill="#dddddd80" stroke="none" cx="12" cy="12" r="10"></circle>
     <circle fill="none" stroke="#2c2c2c" cx="12" cy="12" r="9"></circle>
 </svg>

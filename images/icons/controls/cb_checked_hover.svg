@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg style="display: inline-block; vertical-align: middle;" viewBox="0 0 24 24" height="24" width="24" fill="none" stroke="#2c2c2c" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <title>Icon checkbox checked, active, hovered</title>
+    <desc>Credits: Bettina Solzbacher — Lizenz: CC BY-SA 4.0</desc>
     <rect fill="#dddddd80" stroke="none" x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
     <polyline stroke="#008800" stroke-width="3" points="9 11 12 14 22 4"></polyline>

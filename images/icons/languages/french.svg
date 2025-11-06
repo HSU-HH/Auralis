@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 24 16">
-  <!-- Blauer Streifen -->
-  <rect width="8" height="16" fill="#0055A4" />
-  <!-- Weißer Streifen -->
-  <rect x="8" width="8" height="16" fill="#FFFFFF" />
-  <!-- Roter Streifen -->
-  <rect x="16" width="8" height="16" fill="#EF4135" />
+    <title>Flag of France</title>
+    <desc>Credits: Bettina Solzbacher — Lizenz: CC BY-SA 4.0</desc>
+    <rect width="8" height="16" fill="#0055A4" />
+    <rect x="8" width="8" height="16" fill="#FFFFFF" />
+    <rect x="16" width="8" height="16" fill="#EF4135" />
 </svg>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>Flipcard-Icon</title>
+    <desc>Credits: Bettina Solzbacher — Lizenz: CC BY-SA 4.0</desc>
   <defs>
-    <style>.cls-1{fill:none;stroke:#000000;stroke-width:1.45px;stroke-linecap:round;stroke-linejoin:round;}</style>
+    <style>.cls-1{fill:none;stroke:#1c1c1c;stroke-width:1.45px;stroke-linecap:round;stroke-linejoin:round;}</style>
   </defs>
   <title>icon_flip</title>
   <path class="cls-1" d="M5.99986 16.5001L18.9999 16.5001"/>
