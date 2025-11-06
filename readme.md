@@ -14,7 +14,7 @@ reversibel entwickelt worden, so dass keine zusätzlichen Patches für die Platt
 
 ### Version
 
-Auralis-Version: 1.0 (ILIAS-Version: 9.14)
+Auralis-Version: 1.0 (ILIAS-Version: 9.15)
 
 <br>
 
