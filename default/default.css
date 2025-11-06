@@ -2034,7 +2034,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   line-height: 1.428571429;
   color: #161616;
@@ -2129,7 +2129,7 @@ tr, td {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   font-weight: 500;
   line-height: 1.33;
   color: inherit;
@@ -2552,7 +2552,7 @@ ol.breadcrumb > li + li:before {
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   text-align: center;
   line-height: inherit;
   font-size: inherit;
@@ -3242,7 +3242,7 @@ input.btn, input.il-link.link-bulky,
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
-  font-family: "Open Sans", Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", "Open Sans", Verdana, Arial, Helvetica, sans-serif;
   text-align: center;
   line-height: inherit;
   font-size: inherit;
@@ -19500,7 +19500,7 @@ div.ilc_section_Parallax .auralis-parallax-image {
   position: absolute;
   top: 0;
   left: 0;
-  background-size: auto 120%;
+  background-size: 120%;
   background-repeat: no-repeat;
   background-position: center 0%;
   background-attachment: fixed;

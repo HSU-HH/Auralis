@@ -6,7 +6,9 @@
 
 
 // ## Settings
-@forward "./010-settings";
+@forward "./010-settings" with (
+  $il-font-family-sans-serif: ('Montserrat', 'Open Sans', Verdana, Arial, Helvetica, sans-serif)
+);
 
 // ## Dependencies
 @forward "./020-dependencies";

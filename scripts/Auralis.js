@@ -12,12 +12,15 @@ function Initialize(instance, debugText, ...args) {
 }
 
 async function InitAuralis() {
+    const flag_icon_path = "Customizing/global/skin/auralis/images/icons/languages/";
+
     const Utils = await import('./Auralis/common/utils.js');
     const { DOM } = await import('./Auralis/common/dom.js');
     const { DeviceHandler } = await import('./Auralis/services/devicehandler.js');
     const { EventHandler } = await import('./Auralis/services/eventhandler.js');
     const { CookieManager } = await import('./Auralis/services/cookiemanager.js');
     const { ContentLoader } = await import('./Auralis/ui/contentloader.js');
+    const { LanguageFlags } = await import('./Auralis/ui/langaugeflags.js');
     const { CopyLink } = await import('./Auralis/ui/copylink.js');
     const { PagePositionMarker } = await import('./Auralis/ui/pagepositionmarker.js');
     const { ScrollToTop } = await import('./Auralis/ui/scrolltotop.js');
@@ -36,6 +39,7 @@ async function InitAuralis() {
     const dom = new DOM(Utils);
     const eventhandler = new EventHandler(Utils, dom, device);
     const contentloader = new ContentLoader(dom);
+    const languageflags = new LanguageFlags(dom, flag_icon_path);
     const copylink = new CopyLink(dom);
     const pagemarker = new PagePositionMarker(Utils, dom);
     const scrollToTop = new ScrollToTop(Utils, dom);
@@ -73,6 +77,7 @@ async function InitAuralis() {
     Initialize(scrollToTop, "Error: Initialize ScrollToTop()", eventhandler);
     Initialize(pagemarker, "Error: Initialize PagePositionMarker()", eventhandler);
     Initialize(pagemenu, "Error: Initialize PageMenu()", eventhandler, cookies);
+    Initialize(languageflags, "Error: Initialize LanguageFlags()");
 
     Initialize(style_spacer, "Error: Initialize ContentSpacer()");
     Initialize(style_images, "Error: Initialize ContentImages()");
