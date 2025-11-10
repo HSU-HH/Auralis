@@ -38,7 +38,7 @@ async function InitAuralis() {
     const cookies = new CookieManager("Auralis-Settings");
     const dom = new DOM(Utils);
     const eventhandler = new EventHandler(Utils, dom, device);
-    const contentloader = new ContentLoader(dom);
+    const contentloader = new ContentLoader(dom, eventhandler);
     const languageflags = new LanguageFlags(dom, flag_icon_path);
     const copylink = new CopyLink(dom);
     const pagemarker = new PagePositionMarker(Utils, dom);
@@ -74,10 +74,10 @@ async function InitAuralis() {
     Initialize(cookies, "Error: Initialize CookieManager()");
 
     Initialize(copylink, "Error: Initlialize CopyLink()");
-    Initialize(scrollToTop, "Error: Initialize ScrollToTop()", eventhandler);
     Initialize(pagemarker, "Error: Initialize PagePositionMarker()", eventhandler);
     Initialize(pagemenu, "Error: Initialize PageMenu()", eventhandler, cookies);
     Initialize(languageflags, "Error: Initialize LanguageFlags()");
+    Initialize(scrollToTop, "Error: Initialize ScrollToTop()", eventhandler);
 
     Initialize(style_spacer, "Error: Initialize ContentSpacer()");
     Initialize(style_images, "Error: Initialize ContentImages()");

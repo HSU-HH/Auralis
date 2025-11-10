@@ -26,8 +26,10 @@ export class ScrollToTop {
 
     OnClick() {
         if(this.Utils.getScreenWidth() > 991) {
-            this.page_top.scrollIntoView({
+            const top = this.page_top;
+            top.scrollIntoView({
                 behavior: 'smooth',
+                block: 'start'
             });
         } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -81,9 +81,6 @@ main:not(:has(.breadcrumbs)) {
   }
 
   .auralis-page-toolbar {
-    opacity: 0;
-    transition: opacity design.$fade-in-duration ease-out;
-
     .c-toolbar {
       background: unset;
     }

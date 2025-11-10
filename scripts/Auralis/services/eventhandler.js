@@ -21,6 +21,7 @@ export class EventHandler {
         this.touchStartCallbacks = [];
         this.touchMoveCallbacks = [];
         this.touchEndCallbacks = [];
+        this.unloadCallbacks = [];
 
         this.PrevScreenSize = window.innerWidth;
         this.CurrScreenSize = window.innerWidth;
@@ -46,6 +47,7 @@ export class EventHandler {
         window.addEventListener('resize', () => this.OnResize(this));
         window.addEventListener('scroll', () => this.OnScroll(this));
         this.DocScroll.addEventListener('scroll', () => this.OnScroll(this));
+        window.addEventListener("beforeunload", () => this.OnUnload(this));
 
         if (this.Utils.getScreenWidth() > 991) {
             this.CurrentScrollableElement = this.DocScroll;
@@ -62,8 +64,8 @@ export class EventHandler {
         this.PrevScreenSize = this.CurrScreenSize;
         this.PrevScreenSize = window.innerWidth;
 
-        this.CloseSlatesOnLoad();
         this.AttachCloseOnLeave();
+        this.AttachOnUnload(this.CloseSlates());
     }
 
     AttachOnResize(funcCallback) {
@@ -108,6 +110,14 @@ export class EventHandler {
         this.screenSwitchCallbacks = this.screenSwitchCallbacks.filter(fn => fn !== funcCallback);
     }
 
+    AttachOnUnload(funcCallback) {
+        if (typeof funcCallback === 'function' && !this.unloadCallbacks.includes(funcCallback)) {
+            this.unloadCallbacks.push(funcCallback);
+        }
+    }
+
+
+
     ScrollToPosition(page, offset) {
         const containerRect = this.CurrentScrollableElement.getBoundingClientRect();
         const elemRect = page.getBoundingClientRect();
@@ -136,7 +146,7 @@ export class EventHandler {
         });
     }
 
-    CloseSlatesOnLoad()  {
+    CloseSlates()  {
         const layout = this.DOM.get(".il-layout-page");
 
         if(layout && layout.classList.contains('with-mainbar-slates-engaged')) {
@@ -261,6 +271,10 @@ export class EventHandler {
             this.Touch.delete(t.identifier);
         }
         e.touchEndCallbacks.forEach(fn => fn());
+    }
+
+    OnUnload(e) {
+        e.unloadCallbacks.forEach(fn => fn());
     }
 }
 

@@ -4,9 +4,9 @@
 @use "../010-settings/settings_media" as param;
 
 #auralis-page-top {
-  display: none;
   height: 0;
   flex-grow: 0 !important;
+  opacity: 0;
 }
 
 #MobilePageTop {
