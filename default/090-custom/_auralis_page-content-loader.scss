@@ -1,8 +1,9 @@
 @use "settings/auralis_design-settings" as auralis;
 @use "../010-settings/settings_media" as param;
+@use "sass:math";
 
-$loader-icon-top: auralis.$loader-icon-size / 2;
-$loader-icon-left: auralis.$loader-icon-size / 2;
+$loader-icon-top: math.div(auralis.$loader-icon-size, 2);
+$loader-icon-left: math.div(auralis.$loader-icon-size, 2);
 
 .auralis-content-loader {
   display: block;

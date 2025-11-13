@@ -18395,21 +18395,23 @@ a.ilMediaLightboxClose:hover {
 
 /* Services/UIComponent/Tabs */
 #ilTab {
-  padding: 0;
-  margin: 3px 0;
-  border: 0 none;
-  border-bottom: 2px solid #161616;
+  padding: 0 5px 0;
+  margin: 6px 0 0 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid #161616;
+  border-bottom: 1px solid #161616;
 }
 #ilTab > li {
   float: left;
-  margin: 0 3px 0 0;
+  margin: 0;
 }
 #ilTab > li > a {
   margin: 0;
   margin-right: 2px;
   font-size: 0.875rem;
   line-height: 1.428571429;
-  padding: 6px 15px 3px;
+  padding: 4px 15px 4px;
   border: 0 none;
   border-radius: 0px 0px 0 0;
 }
@@ -18457,8 +18459,7 @@ a.ilMediaLightboxClose:hover {
   color: white;
   cursor: default;
   background-color: #161616;
-  border: 0 none;
-  border-bottom-color: transparent;
+  border: none;
 }
 
 #ilTab a:focus-visible {
@@ -18467,23 +18468,27 @@ a.ilMediaLightboxClose:hover {
 
 /* Sub Tabs */
 #ilSubTab {
-  padding: 6px 0;
+  padding: 0 5px;
   margin: 0;
 }
 #ilSubTab > li:first-child > a {
-  padding-left: 12px;
+  border-bottom-left-radius: 10px;
+}
+#ilSubTab > li:last-child > a {
+  border-bottom-right-radius: 10px;
 }
 #ilSubTab > li {
   float: left;
+  margin: 0;
+  padding: 0;
 }
 #ilSubTab > li > a {
   border-radius: 0;
-  padding: 3px 9px;
+  padding: 6px 12px;
   font-size: 0.75rem;
 }
 #ilSubTab > li > a:hover {
-  text-decoration: underline;
-  background-color: transparent;
+  background-color: #f0f0f0;
 }
 #ilSubTab > li > a:focus {
   border: inherit;
@@ -18523,9 +18528,8 @@ a.ilMediaLightboxClose:hover {
   outline: 3px solid #0078D7;
 }
 #ilSubTab > li.active > a, #ilSubTab > li.active > a:hover, #ilSubTab > li.active > a:focus {
-  color: #4c6586;
-  background-color: transparent;
-  text-decoration: underline;
+  color: white;
+  background-color: #161616;
 }
 
 .il_after_tabs_spacing {

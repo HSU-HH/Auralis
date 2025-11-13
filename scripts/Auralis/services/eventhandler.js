@@ -147,19 +147,23 @@ export class EventHandler {
     }
 
     CloseSlates()  {
-        const layout = this.DOM.get(".il-layout-page");
+        try {
+            const layout = this.DOM.get(".il-layout-page");
 
-        if(layout && layout.classList.contains('with-mainbar-slates-engaged')) {
-            const slate_btn = this.DOM.get(".il-mainbar-close-slates button");
-            const $slate_btn = $(slate_btn);
+            if(layout && layout.classList.contains('with-mainbar-slates-engaged')) {
+                const slate_btn = this.DOM.get(".il-mainbar-close-slates button");
+                const $slate_btn = $(slate_btn);
 
-            const hasJQEvents = !!($._data($slate_btn[0], "events")?.click?.length);
-            const hasNativeEvents = typeof slate_btn.onclick === "function";
+                const hasJQEvents = !!($._data($slate_btn[0], "events")?.click?.length);
+                const hasNativeEvents = typeof slate_btn.onclick === "function";
 
-            if (hasJQEvents || hasNativeEvents) {
-                console.log("Auto-Close Slates");
-                $slate_btn.trigger("click");
+                if (hasJQEvents || hasNativeEvents) {
+                    console.log("Auto-Close Slates");
+                    $slate_btn.trigger("click");
+                }
             }
+        } catch {
+            console.debug("Error: Can not close slate.");
         }
     }
 

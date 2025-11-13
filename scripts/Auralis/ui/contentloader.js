@@ -14,7 +14,6 @@ export class ContentLoader {
     }
 
     OnUnload() {
-        this.DOM.get(".auralis-page-menu-block")?.classList.remove("auralis-visible");
         this.DOM.get(".auralis-page-menu-block")?.classList.add("auralis-invisible");
         this.DOM.get("#mainspacekeeper")?.classList.remove("fade-in");
         this.DOM.get("#mainspacekeeper")?.classList.add("fade-out");
@@ -27,7 +26,6 @@ ShowContent() {
         });
 
         setTimeout(() => {
-            this.DOM.get(".auralis-page-menu-block")?.classList.add("auralis-visible");
             this.DOM.get(".auralis-page-menu-block")?.classList.remove("auralis-invisible");
             this.DOM.get("#mainspacekeeper")?.classList.remove("fade-out");
             this.DOM.get("#mainspacekeeper")?.classList.add("fade-in");
